@@ -1,0 +1,91 @@
+﻿@model IEnumerable<GestionProdFinal.Models.Catalogo>
+
+@{
+    ViewBag.Title = "buscarProductos";
+}
+
+<h2>buscarProductos</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    
+        List<SelectListItem> listItems = new List<SelectListItem>();
+        listItems.Add(new SelectListItem
+        {
+            Text = "Fabricado",
+            Value = "fabricado"
+        });
+        listItems.Add(new SelectListItem
+        {
+            Text = "Importado",
+            Value = "importado",
+        });
+        listItems.Add(new SelectListItem
+        {
+            Text = "Todos",
+            Value = "Todos"
+        });
+        
+    
+    @Html.DropDownList("unTipo", new SelectList(listItems, "Value", "Text"))
+
+    <p>Nombre: </p> @Html.TextBox("unNombre")<br />
+    <p>Descripcion:</p>@Html.TextBox("unaDescripcion")<br />
+
+    <p>Rango maximo</p> @Html.TextBox("unMax")<br />
+    <p>Rango Minimo</p> @Html.TextBox("unMin")<br />
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Filtrar" class="btn btn-default" />
+        </div>
+    </div>
+
+}
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.descripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.precioVentaFinal)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.tipo)
+        </th>
+       
+    </tr>
+
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.descripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.precioVentaFinal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tipo)
+        </td>
+       
+        <td><p>
+    @*--- Cantidad @Html.TextBox("unaCantidad")*@
+    @Html.ActionLink("Agregar", "Agregar", new { id = item.idCatalogo},null) |
+</p>
+        </td>
+    </tr>
+    }
+
+</table>
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

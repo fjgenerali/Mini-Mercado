@@ -1,0 +1,47 @@
+﻿@model List<GestionProdFinal.ViewModels.CompraViewModel>
+@{
+    ViewBag.Title = "Agregar";
+}
+
+<h2>Agregar</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th> Nombre</th>
+            <th> Precio</th>
+            <th> Cantidad</th>
+            <th> Total</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            int t = 0;
+        }
+        @if (Session["Carrito"] != null)
+        {
+            foreach (var item in Session["Carrito"] as List<GestionProdFinal.ViewModels.CompraViewModel>)
+            {
+                t =t+ item.idCatalogo.precioVentaFinal * item.cantidadUnidades;
+                <tr>
+                    <td>@item.idCatalogo.nombre</td>
+                    <td>@item.idCatalogo.precioVentaFinal</td>
+                    <td>@String.Format("{0:C}", item.idCatalogo.precioVentaFinal) </td>
+                    <td>@item.cantidadUnidades</td>
+                    <td>@String.Format("{0:C}", (item.idCatalogo.precioVentaFinal * item.cantidadUnidades)) </td>
+                    <td>@Html.ActionLink("Eliminar", "EliminarCompra", "Busquedas", new { id = item.idCatalogo.idCatalogo },null);</td>
+                </tr>
+            }
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            <th colspan="4">Total</th>
+            <th>@String.Format("{0:C}", t)</th>
+        </tr>
+    </tfoot>
+</table>
+@Html.ActionLink("Seguir buscando", "buscarProductos", "Busquedas", null, null);
+@Html.ActionLink("Fin de compra", "FinCompra", "Busquedas", null, null);
+

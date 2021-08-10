@@ -1,0 +1,43 @@
+﻿@model GestionProdFinal.Models.Usuario
+
+@{
+    ViewBag.Title = "Login";
+    
+}
+
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Usuario</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.email)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.email)
+            @Html.ValidationMessageFor(model => model.email)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.clave)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.clave)
+            @Html.ValidationMessageFor(model => model.clave)
+        </div>
+
+        <p>
+            <input type="submit" value="Login" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+<h2>Login</h2>
+<h2>Login</h2>
+

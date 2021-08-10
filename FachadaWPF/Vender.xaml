@@ -1,0 +1,39 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FachadaWPF"
+        xmlns:Modelo="clr-namespace:BibliotecaAngeles.Modelo;assembly=BibliotecaAngeles" x:Class="FachadaWPF.Vender"
+        mc:Ignorable="d"
+        Title="Vender" Height="450" Width="800">
+    <Grid>
+        <DataGrid x:Name="grdProductos"   HorizontalAlignment="Left" Height="196" Margin="68,124,0,0" VerticalAlignment="Top" Width="146" AllowDrop="True" ItemsSource="{Binding Mode=OneWay}" SelectionChanged="GrdProductos_SelectionChanged" DragOver="GrdProductos_DragOver" Drop="GrdProductos_Drop" CellEditEnding="GrdProductos_CellEditEnding" CurrentCellChanged="GrdProductos_CurrentCellChanged">
+            <DataGrid.DataContext>
+                <Modelo:Producto/>
+            </DataGrid.DataContext>
+        </DataGrid>
+        <Label Content="Nombre" HorizontalAlignment="Left" Margin="81,52,0,0" VerticalAlignment="Top"/>
+        <Label Content="Codigo" HorizontalAlignment="Left" Margin="362,52,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtNombre" HorizontalAlignment="Left" Height="23" Margin="175,52,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtCodigo" HorizontalAlignment="Left" Height="23" Margin="426,52,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="btnBuscar" Content="Buscar" HorizontalAlignment="Left" Margin="607,52,0,0" VerticalAlignment="Top" Width="75" Click="BtnBuscar_Click"/>
+        <Button x:Name="btnAgregar" Content="Agregar" HorizontalAlignment="Left" Margin="251,300,0,0" VerticalAlignment="Top" Width="75" Click="BtnAgregar_Click"/>
+        <DataGrid x:Name="grdProductosVen" HorizontalAlignment="Left" Height="100" Margin="639,144,0,0" VerticalAlignment="Top" Width="100" AllowDrop="True" ItemsSource="{Binding Mode=OneWay}"  DragOver="GrdProductosVen_DragOver" Drop="GrdProductosVen_Drop"/>
+        <ListView HorizontalAlignment="Left" Height="100" Margin="426,124,0,0" VerticalAlignment="Top" Width="100" ItemsSource="{Binding Mode=OneWay}">
+            <ListView.DataContext>
+                <Modelo:ProductoVirtual/>
+            </ListView.DataContext>
+            <ListView.BindingGroup>
+                <BindingGroup/>
+            </ListView.BindingGroup>
+            <ListView.ContextMenu>
+                <ContextMenu/>
+            </ListView.ContextMenu>
+            <ListView.View>
+                <GridView/>
+            </ListView.View>
+        </ListView>
+
+    </Grid>
+</Window>

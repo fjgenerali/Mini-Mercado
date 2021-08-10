@@ -1,0 +1,6 @@
+C:\Users\googl\source\repos\Angeles\Modelo\bin\Debug\netstandard2.0\Modelo.deps.json
+C:\Users\googl\source\repos\Angeles\Modelo\bin\Debug\netstandard2.0\Modelo.dll
+C:\Users\googl\source\repos\Angeles\Modelo\obj\Debug\netstandard2.0\Modelo.csprojAssemblyReference.cache
+C:\Users\googl\source\repos\Angeles\Modelo\obj\Debug\netstandard2.0\Modelo.csproj.CoreCompileInputs.cache
+C:\Users\googl\source\repos\Angeles\Modelo\obj\Debug\netstandard2.0\Modelo.AssemblyInfoInputs.cache
+C:\Users\googl\source\repos\Angeles\Modelo\obj\Debug\netstandard2.0\Modelo.AssemblyInfo.cs

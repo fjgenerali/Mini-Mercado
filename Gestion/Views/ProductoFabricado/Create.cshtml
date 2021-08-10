@@ -1,0 +1,88 @@
+﻿@model GestionProdFinal.ViewModels.ProductoFabricadoViewModel
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm("Create", "ProductoFabricado", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <div class="form-horizontal">
+        <h4>ProductoImportadoViewModels</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.UnProductoFabricado.nombre)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.UnProductoFabricado.nombre)
+            @Html.ValidationMessageFor(model => model.UnProductoFabricado.nombre)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.UnProductoFabricado.precioTotal)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.UnProductoFabricado.precioTotal)
+            @Html.ValidationMessageFor(model => model.UnProductoFabricado.precioTotal)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.UnProductoFabricado.precioVenta)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.UnProductoFabricado.precioVenta)
+            @Html.ValidationMessageFor(model => model.UnProductoFabricado.precioVenta)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.UnProductoFabricado.costo)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.UnProductoFabricado.costo)
+            @Html.ValidationMessageFor(model => model.UnProductoFabricado.costo)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.UnProductoFabricado.tiempoFabricacion)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.UnProductoFabricado.tiempoFabricacion)
+            @Html.ValidationMessageFor(model => model.UnProductoFabricado.tiempoFabricacion)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.UnProductoFabricado.descripcion)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.UnProductoFabricado.descripcion)
+            @Html.ValidationMessageFor(model => model.UnProductoFabricado.descripcion)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.IdGrupoSeleccionado)
+        </div>
+        <div>
+
+            @Html.DropDownListFor(model => model.IdGrupoSeleccionado, Model.TodosLosGrupos)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.IdUsuarioAlta)
+        </div>
+        <div>
+
+            @Html.DropDownListFor(model => model.IdUsuarioAlta, Model.TodosFuncionarios)
+        </div>
+
+
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
